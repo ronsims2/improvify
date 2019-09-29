@@ -2,7 +2,7 @@
  *
  * @param x - The number to round
  * @param place the number of place to round starting at the 10
- * @returns {string}
+ * @returns {number}
  */
 export const round = (x, place) => {
     const num = String(x)
@@ -13,11 +13,11 @@ export const round = (x, place) => {
     }
 
     if (place < 10) {
-        return
+        return x
     }
 
     if (place > x) {
-        return
+        return roundToLargerNumber(x, place)
     }
 
     const roundDecision = parseInt(num.substring(num.length - col.length, num.length))
@@ -25,6 +25,21 @@ export const round = (x, place) => {
     let solution = parseInt(num.substring(0, num.length - col.length + 1))
 
     solution = roundDecision > 5 ? solution + 1 : solution
+    const finalSolution = parseInt(`${solution}${Array(col.length - 1).fill('0').join('')}`)
 
-    return `${solution}${Array(col.length - 1).fill('0').join('')}`
+    return finalSolution
+}
+
+const roundToLargerNumber = (x, place) => {
+    const numString = String(x)
+    const placeString = String(place)
+    const placeDiff = placeString.length - numString.length
+
+    if (placeDiff > 1) {
+        return 0
+    }
+
+    const roundDecision = parseInt(numString[0]) >= 5 ? place : 0
+
+    return roundDecision
 }

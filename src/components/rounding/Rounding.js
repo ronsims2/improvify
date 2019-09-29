@@ -1,23 +1,85 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
+import { round } from '../../utils/maths'
+import qrcode from 'qrcode'
+
+import './Rounding.css'
+
+const instructions = `Round the number to the nearest place value specified. Use a sheet of paper to work out your answer. Click "Submit" to check your answer. Click "I'm done" to quit.`
 
 const generateQuestion = () => {
     const number = Math.ceil(Math.random() * 10000)
-
-    return number
+    let place = Math.ceil(Math.random() * String(number).length)
+    place = parseInt(`1${Array(place).fill('0').join('')}`)
+    return [number, place]
 }
 
 const Rounding = () => {
-    const [answer, setAnswer] = useState(null)
-    const [question, setQuestion] = useState(generateQuestion())
-    const [resolution, setResolution] = useState(false)
+    const q = generateQuestion()
+    const canvasRef = useRef(null)
+    const [answer, setAnswer] = useState('')
+    const [question, setQuestion] = useState(q[0])
+    const [resolution, setResolution] = useState(null)
+    const [place, setPlace] = useState(q[1])
+    const [answerHistory, setAnswerHistory] = useState([])
+    const [isDone, setIsDone] = useState(false)
+
     const handleAnswer = (e) => {
         const val = e.target.value
         setAnswer(val)
     }
+
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        if (answer === Math.round())
+        const solution = round(question, place)
+        if (parseInt(answer) === solution) {
+            handleCorrectAnswer(question, place, solution, answer)
+        }
+        else {
+            handleIncorrectAnswer(question, place, solution, answer)
+        }
+    }
+
+    const handleCorrectAnswer = (question, place, solution, answer) => {
+        const newAnswerHistory = [...answerHistory, {question, place, solution, answer, correct: true}]
+        localStorage.setItem('answerHistory', JSON.stringify(newAnswerHistory))
+        setResolution(1)
+        setAnswerHistory(newAnswerHistory)
+    }
+
+    const handleIncorrectAnswer = (question, place, solution,  answer) => {
+        const newAnswerHistory = [...answerHistory, {question, place, solution, answer, correct: false}]
+        console.log(`Your answer: ${answer} vs the solution: ${solution}`)
+        localStorage.setItem('answerHistory', JSON.stringify(newAnswerHistory))
+        setResolution(0)
+        setAnswerHistory(newAnswerHistory)
+    }
+
+    const handleDone = () => {
+        // generate QR code for parents
+        setIsDone(true)
+        const qrContent = `Your kid Answered ${answerHistory.filter(x => x.correct === true).length} of ${answerHistory.length} rounding problems correctly on ${new Date()}`
+        qrcode.toCanvas(canvasRef.current, qrContent, (err) => console.log(err))
+    }
+
+    const getNext = (e) => {
+        e.preventDefault()
+        setResolution(null)
+        const q = generateQuestion()
+        setQuestion(q[0])
+        setPlace(q[1])
+        setAnswer('')
+    }
+
+    const showAlert = (mode) => {
+        switch (mode) {
+            case 0:
+                return (<div className={'alert alert-danger'}>🐳🐳🐳 Incorrect - No worries, this isn't a test, it's just practice. <button className={'btn btn-danger'} onClick={getNext}>Skip this one</button></div>)
+            case 1:
+                return (<div className={'alert alert-success'}>🎉🎉🎉 Yay! You got it right, keep it up! <button className={'btn btn-success'} onClick={getNext}>Next</button></div>)
+            default:
+                return null
+        }
     }
 
     return (
@@ -25,16 +87,32 @@ const Rounding = () => {
             <div className={'row'}>
                 <div className={'col-md'}>
                     <h1>Rounding</h1>
-                    <h3>Instructions </h3>
-                    <p>Do something</p>
+                    <h4>Instructions</h4>
+                    <p>{instructions}</p>
+                </div>
+            </div>
+            <div className={'row'}>
+                <div className={'col-md'}>
+                    {showAlert(resolution)}
+                </div>
+            </div>
+            <div className={'row'}>
+                <div style={{visibility: isDone? 'visible' : 'hidden', display: isDone ? 'block': 'none'}} className={'col-md text-center'}>
+                    <h4>Show this to your parents so they can scan it.</h4>
+                    <canvas width={400} height={400} ref={canvasRef}></canvas>
+                </div>
+            </div>
+            <div className={'row'}>
+                <div className={'col-md score-box'}>
+                    Score: {answerHistory.filter(x => x.correct === true).length}
                 </div>
             </div>
             <div className={'card'}>
                 <div className={'card-body'}>
-                    <div>{question}</div>
-                    <p>Instructions: </p>
-                    <input value={answer} onChange={handleAnswer} />
-                    <button onClick={handleSubmit}>Submit</button>
+                    <div>Round <span className='question'>{question}</span> to the nearest <span className='place'>{place}</span></div>
+                    <p className={'card-text'}><input className={'form-control'} value={answer} onChange={handleAnswer} /></p>
+                        <button className={'btn btn-primary btn-lg btn-block'} onClick={handleSubmit}>Submit</button>
+                        <button className={'btn btn-warning btn-lg btn-block'} onClick={handleDone}>I'm Done</button>
                 </div>
             </div>
         </>
