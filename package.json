@@ -2,6 +2,7 @@
   "name": "math-apps",
   "version": "0.1.0",
   "private": true,
+  "homepage": "/improvify/",
   "dependencies": {
     "bootstrap": "^4.3.1",
     "qrcode": "^1.4.2",
