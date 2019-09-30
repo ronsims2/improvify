@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.f28e9e1d.chunk.css",
-    "main.js": "/static/js/main.6cf16c17.chunk.js",
-    "main.js.map": "/static/js/main.6cf16c17.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.ec352a03.js",
-    "runtime-main.js.map": "/static/js/runtime-main.ec352a03.js.map",
-    "static/css/2.266e55a5.chunk.css": "/static/css/2.266e55a5.chunk.css",
-    "static/js/2.2b8806f3.chunk.js": "/static/js/2.2b8806f3.chunk.js",
-    "static/js/2.2b8806f3.chunk.js.map": "/static/js/2.2b8806f3.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.08f03889b92114294d5d5dc54459529b.js": "/precache-manifest.08f03889b92114294d5d5dc54459529b.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.266e55a5.chunk.css.map": "/static/css/2.266e55a5.chunk.css.map",
-    "static/css/main.f28e9e1d.chunk.css.map": "/static/css/main.f28e9e1d.chunk.css.map"
+    "main.css": "/improvify/static/css/main.f28e9e1d.chunk.css",
+    "main.js": "/improvify/static/js/main.c2d5cf6a.chunk.js",
+    "main.js.map": "/improvify/static/js/main.c2d5cf6a.chunk.js.map",
+    "runtime-main.js": "/improvify/static/js/runtime-main.bceb51ce.js",
+    "runtime-main.js.map": "/improvify/static/js/runtime-main.bceb51ce.js.map",
+    "static/css/2.266e55a5.chunk.css": "/improvify/static/css/2.266e55a5.chunk.css",
+    "static/js/2.59a5b63a.chunk.js": "/improvify/static/js/2.59a5b63a.chunk.js",
+    "static/js/2.59a5b63a.chunk.js.map": "/improvify/static/js/2.59a5b63a.chunk.js.map",
+    "index.html": "/improvify/index.html",
+    "precache-manifest.9e8cb4665f853d179fb82d0847afda81.js": "/improvify/precache-manifest.9e8cb4665f853d179fb82d0847afda81.js",
+    "service-worker.js": "/improvify/service-worker.js",
+    "static/css/2.266e55a5.chunk.css.map": "/improvify/static/css/2.266e55a5.chunk.css.map",
+    "static/css/main.f28e9e1d.chunk.css.map": "/improvify/static/css/main.f28e9e1d.chunk.css.map"
   }
 }
