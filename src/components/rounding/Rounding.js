@@ -57,6 +57,7 @@ const Rounding = () => {
 
     const handleDone = () => {
         // generate QR code for parents
+        setResolution(null)
         setIsDone(true)
         const qrContent = `Your kid Answered ${answerHistory.filter(x => x.correct === true).length} of ${answerHistory.length} rounding problems correctly on ${new Date()}`
         qrcode.toCanvas(canvasRef.current, qrContent, (err) => console.log(err))
@@ -74,7 +75,7 @@ const Rounding = () => {
     const showAlert = (mode) => {
         switch (mode) {
             case 0:
-                return (<div className={'alert alert-danger'}>🐳🐳🐳 Incorrect - No worries, this isn't a test, it's just practice. <button className={'btn btn-danger'} onClick={getNext}>Skip this one</button></div>)
+                return (<div className={'alert alert-danger'}>🐳🐳🐳 Incorrect - No worries, this isn't a test, its just practice. <button className={'btn btn-danger'} onClick={getNext}>Skip this one</button></div>)
             case 1:
                 return (<div className={'alert alert-success'}>🎉🎉🎉 Yay! You got it right, keep it up! <button className={'btn btn-success'} onClick={getNext}>Next</button></div>)
             default:
@@ -97,20 +98,19 @@ const Rounding = () => {
                 </div>
             </div>
             <div className={'row'}>
-                <div style={{visibility: isDone? 'visible' : 'hidden', display: isDone ? 'block': 'none'}} className={'col-md text-center'}>
+                <div style={{visibility: isDone ? 'visible' : 'hidden', display: isDone ? 'block': 'none'}} className={'col-md text-center'}>
                     <h4>Show this to your parents so they can scan it.</h4>
                     <canvas width={400} height={400} ref={canvasRef}></canvas>
                 </div>
             </div>
-            <div className={'row'}>
-                <div className={'col-md score-box'}>
-                    Score: {answerHistory.filter(x => x.correct === true).length}
-                </div>
-            </div>
-            <div className={'card'}>
+            <div style={{visibility: !isDone ? 'visible' : 'hidden', display: !isDone ? 'block': 'none'}} className={'card'}>
                 <div className={'card-body'}>
+                    <div className={'score-box'}>
+                        Score: {answerHistory.filter(x => x.correct === true).length}
+                    </div>
+                    <hr/>
                     <div>Round <span className='question'>{question}</span> to the nearest <span className='place'>{place}</span></div>
-                    <p className={'card-text'}><input className={'form-control'} value={answer} onChange={handleAnswer} /></p>
+                    <p className={'card-text'}><input className={'form-control'} value={answer} onChange={handleAnswer} placeholder={'Enter your answer here'}/></p>
                         <button className={'btn btn-primary btn-lg btn-block'} onClick={handleSubmit}>Submit</button>
                         <button className={'btn btn-warning btn-lg btn-block'} onClick={handleDone}>I'm Done</button>
                 </div>

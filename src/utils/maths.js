@@ -20,11 +20,12 @@ export const round = (x, place) => {
         return roundToLargerNumber(x, place)
     }
 
-    const roundDecision = parseInt(num.substring(num.length - col.length, num.length))
+    const roundDeciderIndex = num.length - (col.length - 1)
+    const roundDecision = parseInt(num[roundDeciderIndex])
 
-    let solution = parseInt(num.substring(0, num.length - col.length + 1))
+    let solution = parseInt(num.substring(0, num.length - (col.length- 1)))
 
-    solution = roundDecision > 5 ? solution + 1 : solution
+    solution = roundDecision >= 5 ? solution + 1 : solution
     const finalSolution = parseInt(`${solution}${Array(col.length - 1).fill('0').join('')}`)
 
     return finalSolution
