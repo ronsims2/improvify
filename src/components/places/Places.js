@@ -3,7 +3,8 @@ import Bucket from "../bucket/Bucket";
 
 const Places = () => {
     const initialTotal = String(Math.ceil(Math.random() * 10000000))
-    const [total, setTotal] = useState(initialTotal.split())
+    console.log(initialTotal.split(''))
+    const [total, setTotal] = useState(initialTotal.split(''))
     const recalc = (num, place) => {
         const pos = place.length - 1
 
@@ -23,12 +24,13 @@ const Places = () => {
             workingTotal += itemAmount
         })
 
+        setTotal(String(workingTotal).split(''))
     }
 
     return (
         <>
             <div className={'row'}>
-                <p>{total}</p>
+                <p>{total.join('')}</p>
                 <Bucket place={'100'} emoji={'🌎'} count={3} recalc={recalc}/>
             </div>
         </>

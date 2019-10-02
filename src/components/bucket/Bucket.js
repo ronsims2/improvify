@@ -11,7 +11,7 @@ const Bucket = (props) => {
             setTotal(0)
         }
         else {
-            props.recalc(total * parseInt(props.place))
+            props.recalc((total * parseInt(props.place)), props.place)
         }
     }, [total])
 
