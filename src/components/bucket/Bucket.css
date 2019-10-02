@@ -1,0 +1,21 @@
+.bucket-btn {
+    width: 2.25rem;
+    margin: .2rem
+}
+
+.bucket {
+    text-align: center;
+    font-weight: bold;
+    color: mediumpurple;
+}
+
+.total-box {
+    min-height: 10rem;
+    border-bottom: darkgrey 1px solid;
+    margin-bottom: 0.4rem
+}
+
+.bucket-header {
+    border-bottom: darkgrey 1px solid;
+    margin-bottom: 0.4rem
+}
