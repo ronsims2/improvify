@@ -7,11 +7,11 @@ const Bucket = (props) => {
     const [total, setTotal] = useState(props.count)
     useEffect(() => {
         if (total === 10) {
-            props.recalc(total * parseInt(props.place))
+            props.recalc(total, props.place)
             setTotal(0)
         }
         else {
-            props.recalc((total * parseInt(props.place)), props.place)
+            props.recalc(total, props.place)
         }
     }, [total])
 
