@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="093c39dc-e6d3-461a-93e9-b40de3537cc6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/bucket/Bucket.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/bucket/Bucket.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/bucket/Bucket.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/bucket/Bucket.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/places/Places.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/places/Places.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/places/Places.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/places/Places.js" afterDir="false" />
     </list>
@@ -101,7 +97,7 @@
       <workItem from="1569198577805" duration="5216000" />
       <workItem from="1569203814752" duration="6229000" />
       <workItem from="1569971066888" duration="8230000" />
-      <workItem from="1570061246523" duration="8302000" />
+      <workItem from="1570061246523" duration="9964000" />
     </task>
     <servers />
   </component>
@@ -141,7 +137,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/places/Places.js</url>
-          <line>22</line>
+          <line>27</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>

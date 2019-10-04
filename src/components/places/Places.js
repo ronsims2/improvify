@@ -3,7 +3,9 @@ import Bucket from '../bucket/Bucket'
 import  numberToWords from 'number-to-words'
 
 import './Places.css'
+import qrcode from "qrcode";
 
+const questionId = 'places'
 const instructions = (<p>Each emoji represents one place value unit. Use the <strong>PLUS (+)</strong> and <strong>MINUS (-)</strong> button top adjust the emojis so that the total matches the <span className={'highlight'}>BLUE</span> number below.
     <br/><br/>Click the submit button to check your answer.</p>)
 
@@ -14,12 +16,15 @@ const Places = () => {
     const [total, setTotal] = useState(initialTotal.split(''))
     const [dummyTotal, setDummyTotal] = useState(initialDummyTotal)
     const [emojis, setEmojis] = useState(['🍏', '🍔', '🍪', '🥐', '🥯', '🍗', '🥩', '🍎', '🌯', '🌮', '🥙', '🌭', '🥮', '🍅', '🍩'])
+    const [answerHistory, setAnswerHistory] = useState([])
+    const [isDone, setIsDone] = useState(false)
+    const canvasRef = useRef(null)
 
     useEffect(() => {
         console.log('Initial Total: ', total)
     }, [])
 
-    const recalc = (num, place) => {debugger
+    const recalc = (num, place) => {
         const pos = place.length - 1
 
         const workingTotalArray = [...total].reverse()
@@ -56,27 +61,35 @@ const Places = () => {
         // setAnswer('')
     }
 
-    const checkAnswer = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault()
-
-        if (total.join('') === dummyTotal.join()) {
-
+        const myTotal = parseInt(total.join(''))
+        const myDummyTotal = parseInt(dummyTotal.join(''))
+        if (myDummyTotal === myTotal) {
+            handleCorrectAnswer(myTotal, myDummyTotal)
         }
         else {
-
+            handleIncorrectAnswer(myTotal, myDummyTotal)
         }
     }
 
-    const handleCorrectAnswer = (question, place, solution, answer) => {
-        const newAnswerHistory = [...answerHistory, {question, place, solution, answer, correct: true}]
+    const handleDone = () => {
+        // generate QR code for parents
+        setResolution(null)
+        setIsDone(true)
+        const qrContent = `Your kid Answered ${answerHistory.filter(x => x.correct === true).length} of ${answerHistory.length} rounding problems correctly on ${new Date()}`
+        qrcode.toCanvas(canvasRef.current, qrContent, (err) => console.log(err))
+    }
+
+    const handleCorrectAnswer = (question, answer) => {
+        const newAnswerHistory = [...answerHistory, {question, answer, correct: true, questionId}]
         //localStorage.setItem('answerHistory', JSON.stringify(newAnswerHistory))
         setResolution(1)
         setAnswerHistory(newAnswerHistory)
     }
 
-    const handleIncorrectAnswer = (question, place, solution,  answer) => {
-        const newAnswerHistory = [...answerHistory, {question, place, solution, answer, correct: false}]
-        console.log(`Your answer: ${answer} vs the solution: ${solution}`)
+    const handleIncorrectAnswer = (question,  answer) => {
+        const newAnswerHistory = [...answerHistory, {question, answer, correct: false, questionId}]
         //localStorage.setItem('answerHistory', JSON.stringify(newAnswerHistory))
         setResolution(0)
         setAnswerHistory(newAnswerHistory)
@@ -125,10 +138,21 @@ const Places = () => {
                 </div>
             </div>
             <div className={'row'}>
-                {generateBuckets()}
+                <div style={{visibility: isDone ? 'visible' : 'hidden', display: isDone ? 'block': 'none'}} className={'col-md text-center'}>
+                    <h4>Show this to your parents so they can scan it.</h4>
+                    <canvas width={400} height={400} ref={canvasRef}></canvas>
+                </div>
             </div>
             <div className={'row'}>
-                <div className={'col-md'}><button onClick={checkAnswer}>Submit</button></div>
+                {generateBuckets()}
+            </div>
+            <div className={'row btn-row'}>
+                <div className={'col-md-4'}></div>
+                <div className={'col-md-4'}>
+                    <button className={'btn btn-primary btn-lg btn-block'} onClick={handleSubmit}>Submit</button>
+                    <button className={'btn btn-warning btn-lg btn-block'} onClick={handleDone}>I'm Done</button>
+                </div>
+                <div className={'col-md-4'}></div>
             </div>
         </>
     )
