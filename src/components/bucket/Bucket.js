@@ -5,7 +5,7 @@ import './Bucket.css'
 const Bucket = (props) => {
 
     const [total, setTotal] = useState(props.count)
-    useEffect(() => {
+    useEffect(() => {debugger
         if (total === 10) {
             props.recalc(total, props.place)
             setTotal(0)
@@ -21,15 +21,15 @@ const Bucket = (props) => {
     }
 
     return (
-        <div className={'col-sm-1 bucket'}>
-            <div className={'row'}>
-                <div className={'col-sm bucket-header'}>
-                    {`${props.place}s`}
-                </div>
-            </div>
+        <div className={'col-sm-2 bucket'}>
             <div className={'row'}>
                 <div className={'col-sm total-box'}>
                     {Array(total).fill(props.emoji).join('')}
+                </div>
+            </div>
+            <div className={'row'}>
+                <div className={'col-sm bucket-header'}>
+                    {`${props.place}s`}
                 </div>
             </div>
             <div className={'row'}>

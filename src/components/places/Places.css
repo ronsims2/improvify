@@ -1,0 +1,16 @@
+.target-number {
+    font-size: 1rem;
+    font-weight: bold;
+    color: dodgerblue;
+    padding: 2rem;
+    border-bottom: darkgrey 1px solid;
+}
+
+.highlight {
+    font-weight: bold;
+    color: dodgerblue;
+}
+
+.target-number-pre {
+    color: black;
+}
