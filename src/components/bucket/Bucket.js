@@ -5,7 +5,7 @@ import './Bucket.css'
 const Bucket = (props) => {
 
     const [total, setTotal] = useState(props.count)
-    useEffect(() => {debugger
+    useEffect(() => {
         if (total === 10) {
             props.recalc(total, props.place)
             setTotal(0)

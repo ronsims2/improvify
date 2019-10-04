@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef } from 'react'
 import Bucket from '../bucket/Bucket'
 import  numberToWords from 'number-to-words'
 
@@ -9,20 +9,16 @@ const questionId = 'places'
 const instructions = (<p>Each emoji represents one place value unit. Use the <strong>PLUS (+)</strong> and <strong>MINUS (-)</strong> button top adjust the emojis so that the total matches the <span className={'highlight'}>BLUE</span> number below.
     <br/><br/>Click the submit button to check your answer.</p>)
 
-const Places = () => {
+function Places () {
     const initialTotal = String(Math.ceil(Math.random() * 1000000))
     const initialDummyTotal = String(Math.ceil(Math.random() * 1000000))
     const [resolution, setResolution] = useState(null)
     const [total, setTotal] = useState(initialTotal.split(''))
-    const [dummyTotal, setDummyTotal] = useState(initialDummyTotal)
+    const [dummyTotal, setDummyTotal] = useState(initialDummyTotal.split(''))
     const [emojis, setEmojis] = useState(['🍏', '🍔', '🍪', '🥐', '🥯', '🍗', '🥩', '🍎', '🌯', '🌮', '🥙', '🌭', '🥮', '🍅', '🍩'])
     const [answerHistory, setAnswerHistory] = useState([])
     const [isDone, setIsDone] = useState(false)
     const canvasRef = useRef(null)
-
-    useEffect(() => {
-        console.log('Initial Total: ', total)
-    }, [])
 
     const recalc = (num, place) => {
         const pos = place.length - 1
@@ -48,17 +44,13 @@ const Places = () => {
         setDummyTotal(String(workingTotal).split(''))
     }
 
-    const showTotal = () => {
-        return total.join('')
-    }
-
     const getNext = (e) => {
         e.preventDefault()
-        // setResolution(null)
-        // const q = generateQuestion()
-        // setQuestion(q[0])
-        // setPlace(q[1])
-        // setAnswer('')
+        setResolution(null)
+        const myDummyTotal = String(Math.ceil(Math.random() * 1000000))
+        const myTotal = String(Math.ceil(Math.random() * 1000000))
+        setDummyTotal(myDummyTotal.split(''))
+        setTotal(myTotal.split(''))
     }
 
     const handleSubmit = (e) => {
@@ -77,7 +69,7 @@ const Places = () => {
         // generate QR code for parents
         setResolution(null)
         setIsDone(true)
-        const qrContent = `Your kid Answered ${answerHistory.filter(x => x.correct === true).length} of ${answerHistory.length} rounding problems correctly on ${new Date()}`
+        const qrContent = `Your kid answered ${answerHistory.filter(x => x.correct === true).length} of ${answerHistory.length} place value problems correctly on ${new Date()}`
         qrcode.toCanvas(canvasRef.current, qrContent, (err) => console.log(err))
     }
 
@@ -95,12 +87,10 @@ const Places = () => {
         setAnswerHistory(newAnswerHistory)
     }
 
-    const generateBuckets = () => {
-        console.log(total)
-        const comps = [...dummyTotal].reverse().map((item, i) => {
+    const generateBuckets = (dummy) => {debugger;
+        const comps = [...dummy].reverse().map((item, i) => {
             const itemPlace = `1${Array(i).fill('0').join('')}`
-            console.log('item place:',itemPlace)
-            console.log('count: ', item)
+
             return (
                 <Bucket place={itemPlace} count={parseInt(item)} recalc={recalc} emoji={emojis[i]}/>
             )
@@ -139,12 +129,12 @@ const Places = () => {
             </div>
             <div className={'row'}>
                 <div style={{visibility: isDone ? 'visible' : 'hidden', display: isDone ? 'block': 'none'}} className={'col-md text-center'}>
-                    <h4>Show this to your parents so they can scan it.</h4>
+                    <h4>Show this to an adult so they can scan it.</h4>
                     <canvas width={400} height={400} ref={canvasRef}></canvas>
                 </div>
             </div>
-            <div className={'row'}>
-                {generateBuckets()}
+            <div style={{visibility: !isDone ? 'visible' : 'hidden', display: !isDone ? '': 'none'}} className={'row'}>
+                {generateBuckets(dummyTotal)}
             </div>
             <div className={'row btn-row'}>
                 <div className={'col-md-4'}></div>

@@ -6,7 +6,7 @@ import './Rounding.css'
 
 const instructions = `Round the number to the nearest place value specified. Use a sheet of paper to work out your answer. Click "Submit" to check your answer. Click "I'm done" to quit.`
 
-const generateQuestion = () => {
+function generateQuestion() {
     const number = Math.ceil(Math.random() * 10000)
     let place = Math.ceil(Math.random() * String(number).length)
     place = parseInt(`1${Array(place).fill('0').join('')}`)
@@ -59,7 +59,7 @@ const Rounding = () => {
         // generate QR code for parents
         setResolution(null)
         setIsDone(true)
-        const qrContent = `Your kid Answered ${answerHistory.filter(x => x.correct === true).length} of ${answerHistory.length} rounding problems correctly on ${new Date()}`
+        const qrContent = `Your kid answered ${answerHistory.filter(x => x.correct === true).length} of ${answerHistory.length} rounding problems correctly on ${new Date()}`
         qrcode.toCanvas(canvasRef.current, qrContent, (err) => console.log(err))
     }
 
@@ -99,7 +99,7 @@ const Rounding = () => {
             </div>
             <div className={'row'}>
                 <div style={{visibility: isDone ? 'visible' : 'hidden', display: isDone ? 'block': 'none'}} className={'col-md text-center'}>
-                    <h4>Show this to your parents so they can scan it.</h4>
+                    <h4>Show this to an adult so they can scan it.</h4>
                     <canvas width={400} height={400} ref={canvasRef}></canvas>
                 </div>
             </div>
