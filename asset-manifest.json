@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/improvify/static/css/main.3984df87.chunk.css",
+    "main.js": "/improvify/static/js/main.e3ce8cf6.chunk.js",
+    "main.js.map": "/improvify/static/js/main.e3ce8cf6.chunk.js.map",
+    "runtime-main.js": "/improvify/static/js/runtime-main.bceb51ce.js",
+    "runtime-main.js.map": "/improvify/static/js/runtime-main.bceb51ce.js.map",
+    "static/css/2.266e55a5.chunk.css": "/improvify/static/css/2.266e55a5.chunk.css",
+    "static/js/2.9409f93a.chunk.js": "/improvify/static/js/2.9409f93a.chunk.js",
+    "static/js/2.9409f93a.chunk.js.map": "/improvify/static/js/2.9409f93a.chunk.js.map",
+    "index.html": "/improvify/index.html",
+    "precache-manifest.7ef2b6769b13dae9c0de88dda1f9666c.js": "/improvify/precache-manifest.7ef2b6769b13dae9c0de88dda1f9666c.js",
+    "service-worker.js": "/improvify/service-worker.js",
+    "static/css/2.266e55a5.chunk.css.map": "/improvify/static/css/2.266e55a5.chunk.css.map",
+    "static/css/main.3984df87.chunk.css.map": "/improvify/static/css/main.3984df87.chunk.css.map"
+  }
+}
