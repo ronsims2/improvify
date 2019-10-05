@@ -1,35 +1,36 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import './Bucket.css'
 
-const Bucket = (props) => {
+function Bucket (props) {
+    const {place, count, recalc, emoji } = props
 
-    const [total, setTotal] = useState(props.count)
-    useEffect(() => {
-        if (total === 10) {
-            props.recalc(total, props.place)
-            setTotal(0)
-        }
-        else {
-            props.recalc(total, props.place)
-        }
-    }, [total])
+    const [total, setTotal] = useState(count)
 
     const bump = (e, amount) => {
         e.preventDefault()
-        setTotal(total + amount)
+        const newAmount = total + amount
+        console.log(place, newAmount)
+        if (newAmount === 10) {
+            setTotal(0)
+        }
+        else {
+            setTotal(newAmount)
+        }
+
+        props.recalc(newAmount, place)
     }
 
     return (
         <div className={'col-sm-2 bucket'}>
             <div className={'row'}>
                 <div className={'col-sm total-box'}>
-                    {Array(total).fill(props.emoji).join('')}
+                    {Array(total).fill(emoji).join('')}
                 </div>
             </div>
             <div className={'row'}>
                 <div className={'col-sm bucket-header'}>
-                    {`${props.place}s`}
+                    {`${place}s`}
                 </div>
             </div>
             <div className={'row'}>

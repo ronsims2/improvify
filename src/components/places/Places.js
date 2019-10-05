@@ -9,12 +9,25 @@ const questionId = 'places'
 const instructions = (<p>Each emoji represents one place value unit. Use the <strong>PLUS (+)</strong> and <strong>MINUS (-)</strong> button top adjust the emojis so that the total matches the <span className={'highlight'}>BLUE</span> number below.
     <br/><br/>Click the submit button to check your answer.</p>)
 
-function Places () {
+const truncToFit = (a, b) => {
+    if (a.length > b.length) {
+        return [a.substr(0, b.length), b]
+    }
+    if (b.length > a.length) {
+        return [a, b.substr(0, a.length)]
+    }
+
+    return [a, b]
+}
+
+function Places (props) {
     const initialTotal = String(Math.ceil(Math.random() * 1000000))
     const initialDummyTotal = String(Math.ceil(Math.random() * 1000000))
+    const snipped = truncToFit(initialTotal, initialDummyTotal)
+
     const [resolution, setResolution] = useState(null)
-    const [total, setTotal] = useState(initialTotal.split(''))
-    const [dummyTotal, setDummyTotal] = useState(initialDummyTotal.split(''))
+    const [total, setTotal] = useState(snipped[0].split(''))
+    const [dummyTotal, setDummyTotal] = useState(snipped[1].split(''))
     const [emojis, setEmojis] = useState(['🍏', '🍔', '🍪', '🥐', '🥯', '🍗', '🥩', '🍎', '🌯', '🌮', '🥙', '🌭', '🥮', '🍅', '🍩'])
     const [answerHistory, setAnswerHistory] = useState([])
     const [isDone, setIsDone] = useState(false)
@@ -49,8 +62,9 @@ function Places () {
         setResolution(null)
         const myDummyTotal = String(Math.ceil(Math.random() * 1000000))
         const myTotal = String(Math.ceil(Math.random() * 1000000))
-        setDummyTotal(myDummyTotal.split(''))
-        setTotal(myTotal.split(''))
+        const mySnipped = truncToFit(myTotal, myDummyTotal)
+        setTotal(mySnipped[0].split(''))
+        setDummyTotal(mySnipped[1].split(''))
     }
 
     const handleSubmit = (e) => {
@@ -87,12 +101,13 @@ function Places () {
         setAnswerHistory(newAnswerHistory)
     }
 
-    const generateBuckets = (dummy) => {debugger;
+    const generateBuckets = (dummy) => {
+        console.log(dummy)
         const comps = [...dummy].reverse().map((item, i) => {
             const itemPlace = `1${Array(i).fill('0').join('')}`
 
             return (
-                <Bucket place={itemPlace} count={parseInt(item)} recalc={recalc} emoji={emojis[i]}/>
+                <Bucket key={item + itemPlace + emojis[i]} place={itemPlace} count={parseInt(item)} recalc={recalc} emoji={emojis[i]}/>
             )
         })
 
@@ -116,7 +131,7 @@ function Places () {
                 <div className={'col-md'}>
                     <h1>Big Numbers</h1>
                     <h4>Instructions</h4>
-                    <p>{instructions}</p>
+                    {instructions}
                 </div>
             </div>
             <div className={'row'}>
