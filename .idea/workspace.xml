@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="093c39dc-e6d3-461a-93e9-b40de3537cc6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/shared/welcome/Welcome.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/shared/welcome/Welcome.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/start-page/StartPage.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/start-page/StartPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/bucket/Bucket.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/bucket/Bucket.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/places/Places.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/places/Places.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/rounding/Rounding.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/rounding/Rounding.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,6 +22,13 @@
   <component name="CoverageViewManager">
     <option name="myElementSize" value="317" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -24,6 +38,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="ECMAScript 6" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -97,7 +112,7 @@
       <workItem from="1569198577805" duration="5216000" />
       <workItem from="1569203814752" duration="6229000" />
       <workItem from="1569971066888" duration="8230000" />
-      <workItem from="1570061246523" duration="16612000" />
+      <workItem from="1570061246523" duration="22159000" />
     </task>
     <servers />
   </component>

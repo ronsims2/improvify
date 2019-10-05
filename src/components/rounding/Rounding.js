@@ -57,9 +57,10 @@ const Rounding = () => {
 
     const handleDone = () => {
         // generate QR code for parents
+        const kid = localStorage.getItem('userName') || 'Your kid'
         setResolution(null)
         setIsDone(true)
-        const qrContent = `Your kid answered ${answerHistory.filter(x => x.correct === true).length} of ${answerHistory.length} rounding problems correctly on ${new Date()}`
+        const qrContent = `${kid} answered ${answerHistory.filter(x => x.correct === true).length} of ${answerHistory.length} rounding problems correctly on ${new Date()}`
         qrcode.toCanvas(canvasRef.current, qrContent, (err) => console.log(err))
     }
 
@@ -87,7 +88,7 @@ const Rounding = () => {
         <>
             <div className={'row'}>
                 <div className={'col-md'}>
-                    <h1>Rounding</h1>
+                    <h2>Rounding Big Numbers</h2>
                     <h4>Instructions</h4>
                     <p>{instructions}</p>
                 </div>

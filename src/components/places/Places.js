@@ -129,7 +129,7 @@ function Places (props) {
         <>
             <div className={'row'}>
                 <div className={'col-md'}>
-                    <h1>Big Numbers</h1>
+                    <h2>Place Values</h2>
                     <h4>Instructions</h4>
                     {instructions}
                 </div>
