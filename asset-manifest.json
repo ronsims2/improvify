@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/improvify/static/css/main.3984df87.chunk.css",
-    "main.js": "/improvify/static/js/main.0d4cc756.chunk.js",
-    "main.js.map": "/improvify/static/js/main.0d4cc756.chunk.js.map",
+    "main.css": "/improvify/static/css/main.a90158f7.chunk.css",
+    "main.js": "/improvify/static/js/main.4bd6e8d0.chunk.js",
+    "main.js.map": "/improvify/static/js/main.4bd6e8d0.chunk.js.map",
     "runtime-main.js": "/improvify/static/js/runtime-main.bceb51ce.js",
     "runtime-main.js.map": "/improvify/static/js/runtime-main.bceb51ce.js.map",
     "static/css/2.266e55a5.chunk.css": "/improvify/static/css/2.266e55a5.chunk.css",
-    "static/js/2.9409f93a.chunk.js": "/improvify/static/js/2.9409f93a.chunk.js",
-    "static/js/2.9409f93a.chunk.js.map": "/improvify/static/js/2.9409f93a.chunk.js.map",
+    "static/js/2.89128fcd.chunk.js": "/improvify/static/js/2.89128fcd.chunk.js",
+    "static/js/2.89128fcd.chunk.js.map": "/improvify/static/js/2.89128fcd.chunk.js.map",
     "index.html": "/improvify/index.html",
-    "precache-manifest.b1d605336e0efddc122015e72e3447c7.js": "/improvify/precache-manifest.b1d605336e0efddc122015e72e3447c7.js",
+    "precache-manifest.23da103b329e3a06e68eaa3da282a9d6.js": "/improvify/precache-manifest.23da103b329e3a06e68eaa3da282a9d6.js",
     "service-worker.js": "/improvify/service-worker.js",
     "static/css/2.266e55a5.chunk.css.map": "/improvify/static/css/2.266e55a5.chunk.css.map",
-    "static/css/main.3984df87.chunk.css.map": "/improvify/static/css/main.3984df87.chunk.css.map"
+    "static/css/main.a90158f7.chunk.css.map": "/improvify/static/css/main.a90158f7.chunk.css.map"
   }
 }
