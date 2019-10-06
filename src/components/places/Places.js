@@ -36,7 +36,7 @@ function Places (props) {
     const recalc = (num, place) => {
         const pos = place.length - 1
 
-        const workingTotalArray = [...total].reverse()
+        const workingTotalArray = [...dummyTotal].reverse()
         let workingTotal = 0
 
         workingTotalArray.forEach((item, i) => {

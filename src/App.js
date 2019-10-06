@@ -8,7 +8,7 @@ function App() {
         <main>
             <div className={'row'}>
                 <div className={'col-md text-center'}>
-                    <h1 className={'app-title'}><a href={"/#/home"}>Improvify</a></h1>
+                    <h1 className={'app-title'}><a href={"#/home"}>Improvify</a></h1>
                     <p>Because practice is waaaayyyyyyy better with emojis 🤓😎🤩🥳🤪</p>
                     <hr/>
                 </div>

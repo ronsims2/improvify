@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import Welcome from '../shared/welcome/Welcome'
+import Welcome from '../welcome/Welcome'
 
 import './StartPage.css'
 

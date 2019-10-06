@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="093c39dc-e6d3-461a-93e9-b40de3537cc6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/shared/welcome/Welcome.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/shared/welcome/Welcome.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/start-page/StartPage.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/start-page/StartPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/places/Places.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/places/Places.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/rounding/Rounding.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/rounding/Rounding.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/welcome/Welcome.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/welcome/Welcome.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/welcome/Welcome.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/welcome/Welcome.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/start-page/StartPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/start-page/StartPage.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,6 +44,11 @@
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
