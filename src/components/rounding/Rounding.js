@@ -14,7 +14,7 @@ function generateQuestion() {
     return [number, place]
 }
 
-const Rounding = () => {
+function Rounding () {
     const q = generateQuestion()
     const canvasRef = useRef(null)
     const [answer, setAnswer] = useState('')

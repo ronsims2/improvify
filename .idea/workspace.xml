@@ -2,11 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="093c39dc-e6d3-461a-93e9-b40de3537cc6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/estimate-line/EstimateLine.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/estimate-line/EstimateLine.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/places/Places.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/places/Places.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/rounding/Rounding.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/rounding/Rounding.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/start-page/StartPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/start-page/StartPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,6 +25,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>

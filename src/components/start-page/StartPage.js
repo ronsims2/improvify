@@ -7,7 +7,6 @@ import './StartPage.css'
 function StartPage (props) {
 
     const userName = localStorage.getItem('userName') || ''
-    debugger
     const [name, setName] = useState(userName)
 
 
@@ -27,6 +26,7 @@ function StartPage (props) {
                         <ul className={'list-group'}>
                             <li className={'list-group-item'}><Link to="/rounding">Rounding Big Numbers</Link></li>
                             <li className={'list-group-item'}><Link to="/places">Place Values</Link></li>
+                            <li className={'list-group-item'}><Link to="/estimate-line">Estimating - Number Line</Link></li>
                         </ul>
                     </div>
                 </div>

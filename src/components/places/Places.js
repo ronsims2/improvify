@@ -73,6 +73,9 @@ function Places (props) {
         e.preventDefault()
         const myTotal = parseInt(total.join(''))
         const myDummyTotal = parseInt(dummyTotal.join(''))
+
+        window.scrollTo(0, 0)
+
         if (myDummyTotal === myTotal) {
             handleCorrectAnswer(myTotal, myDummyTotal)
         }
