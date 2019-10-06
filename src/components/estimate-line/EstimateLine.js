@@ -142,12 +142,15 @@ function EstimateLine ()  {
     return (
         <>
             <div className={'row'}>
-                <div className={'col-md-10'}>
-                    <h2>Estimating - Number Line)</h2>
+                <div className={'col-md-8'}>
+                    <h2>Estimating - Number Line</h2>
                     <h4>Instructions</h4>
                     {instructions}
                 </div>
                 <div className={'col-md-2 question-no'}>Question #: {questionCount}</div>
+                <div className={'score-box'}>
+                    Score: {answerHistory.filter(x => x.correct === true && x.activityId === activityId).length}
+                </div>
             </div>
             <div className={'row'}>
                 <div className={'col-md target-number'}><span className={'target-number-pre'}>Where does this number fit on the number line: </span>{numberToWords.toWords(question)}?</div>

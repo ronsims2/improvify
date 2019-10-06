@@ -4,7 +4,7 @@ import qrcode from 'qrcode'
 
 import './Rounding.css'
 
-const activityId = 'rounding'
+const activityId = 'rounding_big_numbers'
 const instructions = `Round the number to the nearest place value specified. Use a sheet of paper to work out your answer. Click "Submit" to check your answer. Click "I'm done" to quit.`
 
 function generateQuestion() {
@@ -90,12 +90,15 @@ function Rounding () {
     return (
         <>
             <div className={'row'}>
-                <div className={'col-md-10'}>
+                <div className={'col-md-8'}>
                     <h2>Rounding Big Numbers</h2>
                     <h4>Instructions</h4>
                     <p>{instructions}</p>
                 </div>
                 <div className={'col-md-2 question-no'}>Question #: {questionCount}</div>
+                <div className={'score-box'}>
+                    Score: {answerHistory.filter(x => x.correct === true && x.activityId === activityId).length}
+                </div>
             </div>
             <div className={'row'}>
                 <div className={'col-md'}>
@@ -110,10 +113,6 @@ function Rounding () {
             </div>
             <div style={{visibility: !isDone ? 'visible' : 'hidden', display: !isDone ? 'block': 'none'}} className={'card'}>
                 <div className={'card-body'}>
-                    <div className={'score-box'}>
-                        Score: {answerHistory.filter(x => x.correct === true).length}
-                    </div>
-                    <hr/>
                     <div>Round <span className='question'>{question}</span> to the nearest <span className='place'>{place}</span></div>
                     <p className={'card-text'}><input className={'form-control'} value={answer} onChange={handleAnswer} placeholder={'Enter your answer here'}/></p>
                         <button className={'btn btn-primary btn-lg btn-block'} onClick={handleSubmit}>Submit</button>

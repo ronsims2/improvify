@@ -5,7 +5,7 @@ import  numberToWords from 'number-to-words'
 import './Places.css'
 import qrcode from "qrcode";
 
-const activityId = 'places'
+const activityId = 'place_values_big_numbers'
 const instructions = (<p>Each emoji represents one place value unit. Use the <strong>PLUS (+)</strong> and <strong>MINUS (-)</strong> button top adjust the emojis so that the total matches the <span className={'highlight'}>BLUE</span> number below.
     <br/><br/>Click the submit button to check your answer.</p>)
 
@@ -134,12 +134,15 @@ function Places (props) {
     return (
         <>
             <div className={'row'}>
-                <div className={'col-md-10'}>
+                <div className={'col-md-8'}>
                     <h2>Place Values</h2>
                     <h4>Instructions</h4>
                     {instructions}
                 </div>
                 <div className={'col-md-2 question-no'}>Question #: {questionCount}</div>
+                <div className={'col-md-2 score-box'}>
+                    Score: {answerHistory.filter(x => x.correct === true && x.activityId === activityId).length}
+                </div>
             </div>
             <div className={'row'}>
                 <div className={'col-md target-number'}><span className={'target-number-pre'}>Match this number: </span>{numberToWords.toWords(parseInt(total.join(''))).replace(/,/g, '')}</div>
