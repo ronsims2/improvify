@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4f71b5191796668fccebd4327be36e22",
+    "revision": "fe5f3e49bfd805d44e1ffff2d4f4da8e",
     "url": "/improvify/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/improvify/static/css/2.266e55a5.chunk.css"
   },
   {
-    "revision": "0cc66301d1b2c934a9f1",
+    "revision": "a97f76462dcee23b7a14",
     "url": "/improvify/static/css/main.3984df87.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/improvify/static/js/2.9409f93a.chunk.js"
   },
   {
-    "revision": "0cc66301d1b2c934a9f1",
-    "url": "/improvify/static/js/main.e3ce8cf6.chunk.js"
+    "revision": "a97f76462dcee23b7a14",
+    "url": "/improvify/static/js/main.0d4cc756.chunk.js"
   },
   {
     "revision": "31717120b7aee19bc1b7",
