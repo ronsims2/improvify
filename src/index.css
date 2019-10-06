@@ -25,3 +25,8 @@ h2 {
   text-decoration: none;
   text-underline: none;
 }
+
+.question-no {
+  font-weight: bold;
+  color: mediumpurple;
+}

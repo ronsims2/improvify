@@ -4,6 +4,7 @@ import qrcode from 'qrcode'
 
 import './Rounding.css'
 
+const activityId = 'rounding'
 const instructions = `Round the number to the nearest place value specified. Use a sheet of paper to work out your answer. Click "Submit" to check your answer. Click "I'm done" to quit.`
 
 function generateQuestion() {
@@ -22,6 +23,7 @@ const Rounding = () => {
     const [place, setPlace] = useState(q[1])
     const [answerHistory, setAnswerHistory] = useState([])
     const [isDone, setIsDone] = useState(false)
+    const [questionCount, setQuestionCount] = useState(1)
 
     const handleAnswer = (e) => {
         const val = e.target.value
@@ -41,32 +43,33 @@ const Rounding = () => {
     }
 
     const handleCorrectAnswer = (question, place, solution, answer) => {
-        const newAnswerHistory = [...answerHistory, {question, place, solution, answer, correct: true}]
-        localStorage.setItem('answerHistory', JSON.stringify(newAnswerHistory))
+        const newAnswerHistory = [...answerHistory, {question, place, solution, answer, activityId, correct: true}]
+        sessionStorage.setItem('answerHistory', JSON.stringify(newAnswerHistory))
         setResolution(1)
         setAnswerHistory(newAnswerHistory)
     }
 
     const handleIncorrectAnswer = (question, place, solution,  answer) => {
-        const newAnswerHistory = [...answerHistory, {question, place, solution, answer, correct: false}]
+        const newAnswerHistory = [...answerHistory, {question, place, solution, answer, activityId, correct: false}]
         console.log(`Your answer: ${answer} vs the solution: ${solution}`)
-        localStorage.setItem('answerHistory', JSON.stringify(newAnswerHistory))
+        sessionStorage.setItem('answerHistory', JSON.stringify(newAnswerHistory))
         setResolution(0)
         setAnswerHistory(newAnswerHistory)
     }
 
     const handleDone = () => {
         // generate QR code for parents
-        const kid = localStorage.getItem('userName') || 'Your kid'
+        const kid = sessionStorage.getItem('userName') || 'Your kid'
         setResolution(null)
         setIsDone(true)
-        const qrContent = `${kid} answered ${answerHistory.filter(x => x.correct === true).length} of ${answerHistory.length} rounding problems correctly on ${new Date()}`
+        const qrContent = `${kid} answered ${answerHistory.filter(x => x.correct === true && x.activityId === activityId).length} of ${answerHistory.length} rounding problems correctly on ${new Date()}`
         qrcode.toCanvas(canvasRef.current, qrContent, (err) => console.log(err))
     }
 
     const getNext = (e) => {
         e.preventDefault()
         setResolution(null)
+        setQuestionCount(questionCount + 1)
         const q = generateQuestion()
         setQuestion(q[0])
         setPlace(q[1])
@@ -87,11 +90,12 @@ const Rounding = () => {
     return (
         <>
             <div className={'row'}>
-                <div className={'col-md'}>
+                <div className={'col-md-10'}>
                     <h2>Rounding Big Numbers</h2>
                     <h4>Instructions</h4>
                     <p>{instructions}</p>
                 </div>
+                <div className={'col-md-2 question-no'}>Question #: {questionCount}</div>
             </div>
             <div className={'row'}>
                 <div className={'col-md'}>

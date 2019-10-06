@@ -5,7 +5,7 @@ import  numberToWords from 'number-to-words'
 import './Places.css'
 import qrcode from "qrcode";
 
-const questionId = 'places'
+const activityId = 'places'
 const instructions = (<p>Each emoji represents one place value unit. Use the <strong>PLUS (+)</strong> and <strong>MINUS (-)</strong> button top adjust the emojis so that the total matches the <span className={'highlight'}>BLUE</span> number below.
     <br/><br/>Click the submit button to check your answer.</p>)
 
@@ -31,6 +31,7 @@ function Places (props) {
     const [emojis, setEmojis] = useState(['🍏', '🍔', '🍪', '🥐', '🥯', '🍗', '🥩', '🍎', '🌯', '🌮', '🥙', '🌭', '🥮', '🍅', '🍩'])
     const [answerHistory, setAnswerHistory] = useState([])
     const [isDone, setIsDone] = useState(false)
+    const [questionCount, setQuestionCount] = useState(1)
     const canvasRef = useRef(null)
 
     const recalc = (num, place) => {
@@ -60,6 +61,7 @@ function Places (props) {
     const getNext = (e) => {
         e.preventDefault()
         setResolution(null)
+        setQuestionCount(questionCount + 1)
         const myDummyTotal = String(Math.ceil(Math.random() * 1000000))
         const myTotal = String(Math.ceil(Math.random() * 1000000))
         const mySnipped = truncToFit(myTotal, myDummyTotal)
@@ -81,22 +83,23 @@ function Places (props) {
 
     const handleDone = () => {
         // generate QR code for parents
+        const kid = sessionStorage.getItem('userName') || 'Your kid'
         setResolution(null)
         setIsDone(true)
-        const qrContent = `Your kid answered ${answerHistory.filter(x => x.correct === true).length} of ${answerHistory.length} place value problems correctly on ${new Date()}`
+        const qrContent = `${kid} answered ${answerHistory.filter(x => x.correct === true && x.activityId === activityId).length} of ${answerHistory.length} place value problems correctly on ${new Date()}`
         qrcode.toCanvas(canvasRef.current, qrContent, (err) => console.log(err))
     }
 
     const handleCorrectAnswer = (question, answer) => {
-        const newAnswerHistory = [...answerHistory, {question, answer, correct: true, questionId}]
-        //localStorage.setItem('answerHistory', JSON.stringify(newAnswerHistory))
+        const newAnswerHistory = [...answerHistory, {question, answer, activityId, correct: true}]
+        sessionStorage.setItem('answerHistory', JSON.stringify(newAnswerHistory))
         setResolution(1)
         setAnswerHistory(newAnswerHistory)
     }
 
     const handleIncorrectAnswer = (question,  answer) => {
-        const newAnswerHistory = [...answerHistory, {question, answer, correct: false, questionId}]
-        //localStorage.setItem('answerHistory', JSON.stringify(newAnswerHistory))
+        const newAnswerHistory = [...answerHistory, {question, answer, activityId, correct: false}]
+        sessionStorage.setItem('answerHistory', JSON.stringify(newAnswerHistory))
         setResolution(0)
         setAnswerHistory(newAnswerHistory)
     }
@@ -128,11 +131,12 @@ function Places (props) {
     return (
         <>
             <div className={'row'}>
-                <div className={'col-md'}>
+                <div className={'col-md-10'}>
                     <h2>Place Values</h2>
                     <h4>Instructions</h4>
                     {instructions}
                 </div>
+                <div className={'col-md-2 question-no'}>Question #: {questionCount}</div>
             </div>
             <div className={'row'}>
                 <div className={'col-md target-number'}><span className={'target-number-pre'}>Match this number: </span>{numberToWords.toWords(parseInt(total.join(''))).replace(/,/g, '')}</div>

@@ -3,11 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="093c39dc-e6d3-461a-93e9-b40de3537cc6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/places/Places.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/places/Places.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/welcome/Welcome.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/welcome/Welcome.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/welcome/Welcome.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/welcome/Welcome.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/rounding/Rounding.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/rounding/Rounding.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/start-page/StartPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/start-page/StartPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -167,6 +166,11 @@
           <line>11</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/start-page/StartPage.js</url>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="33" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

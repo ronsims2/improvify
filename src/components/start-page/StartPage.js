@@ -1,13 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Welcome from '../welcome/Welcome'
 
 import './StartPage.css'
 
 function StartPage (props) {
+
     const userName = localStorage.getItem('userName') || ''
     debugger
     const [name, setName] = useState(userName)
+
 
     const setUserName = (n) => {
         setName(n)
