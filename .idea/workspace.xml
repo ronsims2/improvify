@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="093c39dc-e6d3-461a-93e9-b40de3537cc6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/estimate-line/EstimateLine.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/estimate-line/EstimateLine.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/places/Places.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/places/Places.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/rounding/Rounding.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/rounding/Rounding.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -61,7 +58,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.Debug Application">
+  <component name="RunManager" selected="Node.js.scratch_4.es6">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000" useFirstLineBreakpoints="true">
       <method v="2" />
     </configuration>
@@ -69,6 +66,9 @@
       <method v="2" />
     </configuration>
     <configuration name="scratch_2.es6" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$APPLICATION_CONFIG_DIR$/scratches/scratch_2.es6" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="scratch_4.es6" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$APPLICATION_CONFIG_DIR$/scratches/scratch_4.es6" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
     <configuration name="scratch.es6" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$APPLICATION_CONFIG_DIR$/scratches/scratch.es6" working-dir="$PROJECT_DIR$">
@@ -89,10 +89,12 @@
       <item itemvalue="Node.js.maths.js" />
       <item itemvalue="Node.js.scratch_2.es6" />
       <item itemvalue="Node.js.scratch.es6" />
+      <item itemvalue="Node.js.scratch_4.es6" />
       <item itemvalue="npm.npm start" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.scratch_4.es6" />
         <item itemvalue="Node.js.scratch_2.es6" />
         <item itemvalue="Node.js.scratch.es6" />
         <item itemvalue="Node.js.maths.js" />
@@ -113,6 +115,10 @@
       <workItem from="1569203814752" duration="6229000" />
       <workItem from="1569971066888" duration="8230000" />
       <workItem from="1570061246523" duration="22159000" />
+      <workItem from="1573330112538" duration="2795000" />
+      <workItem from="1573782412892" duration="241000" />
+      <workItem from="1593564951878" duration="686000" />
+      <workItem from="1593736661961" duration="45000" />
     </task>
     <servers />
   </component>
@@ -158,18 +164,15 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/places/Places.js</url>
           <line>66</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/bucket/Bucket.js</url>
           <line>11</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/start-page/StartPage.js</url>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="33" />
         </line-breakpoint>
       </breakpoints>
